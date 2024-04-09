@@ -1,8 +1,7 @@
 package com.JN.service.impl;
 
-import com.JN.entity.FoodEntity;
+import com.JN.dto.TravelDTO;
 import com.JN.entity.JiaoTongEntity;
-import com.JN.entity.TravelEntity;
 import com.JN.mapper.PointMapper;
 import com.JN.service.PointService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +13,12 @@ public class PointServiceImpl implements PointService {
     @Autowired
     private PointMapper pointMapper;
     @Override
-    public List<TravelEntity> getTravelPoints() {
-        return pointMapper.getTravelPointsM();
+    public List<TravelDTO> getTravelPointsList(int page, int limit) {
+        return pointMapper.getTravelPointsMList(page, limit);
     }
 
     @Override
-    public List<FoodEntity> getFoodPoints() {
+    public List<Object> getFoodPoints() {
         return pointMapper.getFoodPointsM();
 
     }
@@ -28,4 +27,12 @@ public class PointServiceImpl implements PointService {
     public List<JiaoTongEntity> getJiaoTongPoints() {
         return pointMapper.getJiaoTongPointsM();
     }
+
+    @Override
+    public Integer getTravelPointsCount() {
+
+        return pointMapper.getTravelPointsCount();
+    }
+
+
 }
