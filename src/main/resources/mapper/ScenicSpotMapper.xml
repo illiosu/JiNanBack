@@ -3,10 +3,39 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.JN.mapper.ScenicSpotMapper">
+    <insert id="addScenicSpot">
+        INSERT INTO travel (NAME, address, adname,location,x, y, type, 景区简, geom)
+        VALUES
+            (
+                #{name},
+                #{address},
+                #{adname},
+                CONCAT(#{x}, ', ', #{y}),
+                #{x},
+                #{y},
+                #{type},
+                #{introduction},
+                ST_GeomFromText (concat('POINT(', #{x}, ' ', #{y}, ')'), 4490)
+            );
+    </insert>
+    <update id="updateScenicSpot">
+        UPDATE travel
+        SET
+            name = #{name},
+            address = #{address},
+            adname = #{adname},
+            location = CONCAT(#{x}, ', ', #{y}),
+            x = #{x},
+            y = #{y},
+            type = #{type},
+            景区简 = #{introduction},
+            geom = ST_GeomFromText (concat('POINT(', #{x}, ' ', #{y}, ')'), 4490)
+        WHERE gid = #{id};
+    </update>
 
-<!--LIMIT 表示需要返回的数据条数， OFFSET 表示开始选择数据的起始位置-->
+    <!--LIMIT 表示需要返回的数据条数， OFFSET 表示开始选择数据的起始位置-->
 
     <select id="getScenicSpotList" resultType="com.JN.dto.ScenicSpotDTO">
-        SELECT * FROM travel LIMIT #{limit} OFFSET #{pageSize}
+        SELECT * FROM travel ORDER BY gid ASC LIMIT #{limit} OFFSET #{pageSize}
     </select>
 </mapper>
