@@ -1,5 +1,6 @@
 package com.JN.controller;
 
+import com.JN.common.Result;
 import com.JN.dto.FoodDTO;
 import com.JN.dto.TravelDTO;
 import com.JN.entity.FoodEntity;
@@ -19,16 +20,16 @@ public class PointController {
     private PointService pointService;
 
     @GetMapping("/getTravelPoints")
-    public List<TravelDTO> getTravelPoints(@RequestParam(value = "page", defaultValue = "1") int page,
-                                           @RequestParam(value = "limit", defaultValue = "3") int limit)
+    public Result getTravelPoints(@RequestParam(value = "page", defaultValue = "1") int page,
+                                  @RequestParam(value = "limit", defaultValue = "3") int limit)
     {
-        return pointService.getTravelPointsList(page,limit);
+        return Result.ok(pointService.getTravelPointsList(page,limit)) ;
     }
 
     @GetMapping("/getTravelPointsCounts")
-    public Integer getTravelPointsCounts()
+    public Result getTravelPointsCounts()
     {
-        return pointService.getTravelPointsCount();
+        return Result.ok(pointService.getTravelPointsCount());
     }
 
 //    @RequestMapping(value = "/getFoodPoints", method = RequestMethod.GET)

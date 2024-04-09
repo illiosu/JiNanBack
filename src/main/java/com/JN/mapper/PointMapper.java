@@ -15,7 +15,7 @@ public interface PointMapper {
     List<pointEntity> getPoints();
 
 
-    List<TravelDTO> getTravelPointsMList(@Param("page") int page, @Param("limit") int limit);
+    List<TravelDTO> getTravelPointsMList(@Param("pageSize") int pageSize, @Param("limit") int limit);
     @Select("select count(*) from travel")
     Integer getTravelPointsCount();
     @Select("SELECT json_build_object(\n" +

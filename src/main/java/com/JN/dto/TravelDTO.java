@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class TravelDTO {
+    private int gid;
     private String name;
     private String address;
     private String adname;

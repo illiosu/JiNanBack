@@ -14,7 +14,8 @@ public class PointServiceImpl implements PointService {
     private PointMapper pointMapper;
     @Override
     public List<TravelDTO> getTravelPointsList(int page, int limit) {
-        return pointMapper.getTravelPointsMList(page, limit);
+        int pageSize = (page - 1)*limit;
+        return pointMapper.getTravelPointsMList(pageSize, limit);
     }
 
     @Override
