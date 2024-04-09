@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.JN.mapper.ScenicSpotMapper">
+
+<!--LIMIT 表示需要返回的数据条数， OFFSET 表示开始选择数据的起始位置-->
+
+    <select id="getScenicSpotList" resultType="com.JN.dto.ScenicSpotDTO">
+        SELECT * FROM travel LIMIT #{limit} OFFSET #{pageSize}
+    </select>
+</mapper>
