@@ -1,10 +1,7 @@
 package com.JN.mapper;
 
 import com.JN.dto.ScenicSpotDTO;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -16,7 +13,7 @@ public interface ScenicSpotMapper {
     Integer ScenicSpotListCount();
 
     void addScenicSpot(@Param("name") String name, @Param("address") String address, @Param("adname") String adname, @Param("x") Double x, @Param("y") Double y, @Param("type") String type, @Param("introduction") String introduction);
-
+    @Options(useGeneratedKeys=true,keyProperty="gid")
     void updateScenicSpot(@Param("id") Integer id, @Param("name") String name, @Param("address") String address, @Param("adname") String adname, @Param("x") Double x, @Param("y") Double y, @Param("type") String type, @Param("introduction") String introduction);
 
     @Delete("DELETE FROM travel\n" +
