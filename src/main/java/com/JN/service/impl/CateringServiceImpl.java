@@ -15,4 +15,9 @@ public class CateringServiceImpl implements CateringService {
         int pageSize = (page - 1) * limit;
         return cateringMapper.getCatering(pageSize, limit);
     }
+
+    @Override
+    public Integer CateringListCount() {
+        return cateringMapper.getCateringCount();
+    }
 }

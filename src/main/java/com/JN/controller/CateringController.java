@@ -19,4 +19,9 @@ public class CateringController {
     {
         return Result.ok(cateringService.getCatering(page, limit));
     }
+    @GetMapping("/getCateringCount")
+    public Result getScenicSpotCount()
+    {
+        return Result.ok(cateringService.CateringListCount());
+    }
 }

@@ -16,4 +16,9 @@ public class TransportationServiceImpl implements TransportationService {
         int pageSize = (page - 1) * limit;
         return transportationMapper.getTransportation(pageSize, limit);
     }
+
+    @Override
+    public Integer TransportationCount() {
+        return transportationMapper.getTransportationCount();
+    }
 }

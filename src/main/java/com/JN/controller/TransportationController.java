@@ -20,4 +20,10 @@ public class TransportationController {
     {
         return Result.ok(transportationService.getTransportation(page, limit));
     }
+
+    @GetMapping("/getTransportationCount")
+    public Result getTransportationCount()
+    {
+        return Result.ok(transportationService.TransportationCount());
+    }
 }

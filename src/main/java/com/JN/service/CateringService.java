@@ -7,4 +7,5 @@ import java.util.List;
 public interface CateringService {
     List<FoodDTO> getCatering(int page, int limit);
 
+    Integer CateringListCount();
 }
